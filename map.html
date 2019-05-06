@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>MAP</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Concert+One">
+      <style>
+        body {
+          font-family: 'Concert One', cursive;;
+          font-size: 20px;
+        }
+        body { margin:0; padding:0; }
+        #map { position:absolute; margin-left:100px;top:100px; bottom:0; width:60%; }
+        *{cursor: url(img/cursor.cur),default;}
+        iframe {
+        margin-left: 150px;
+        margin-top: 750px
+         }
+      #home{
+          width:50px;
+          height:auto;
+          margin-top:400px;
+          margin-left:100px
+        }
+      #save{
+          width:50px;
+          height:auto;
+          margin-left:100px
+        }
+     
+        
+        
+      </style>
+    
+</head>
+
+<body>
+        <div class="sidebar">
+                <a class="active"></a>
+                <a href="index.html">Home</a>
+                <a href="map.html">MAP</a>
+                <a href="yourlist.html">YOUR LIST</a>
+                <a href="about.html">ABOUT</a>
+                <div id="home">
+                  <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="&#x5716;&#x5C64;_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="591.709 350.056 98.459 101.272" style="enable-background:new 591.709 350.056 98.459 101.272;"
+	 xml:space="preserve">
+<g>
+	<polygon style="fill:none;stroke:#000000;stroke-width:9;stroke-miterlimit:10;" points="607.704,389.964 607.704,432.292 
+		671.195,432.292 671.195,389.964 639.449,368.8 	"/>
+	<polyline style="fill:none;stroke:#000000;stroke-width:9;stroke-miterlimit:10;" points="650.031,432.292 650.031,405.836 
+		628.868,405.836 628.868,432.292 	"/>
+</g>
+</svg>
+</a>
+</div>
+<div id="save">
+  <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="&#x5716;&#x5C64;_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="592 347.576 95.077 101.199" style="enable-background:new 592 347.576 95.077 101.199;" xml:space="preserve">
+<path d="M661.799,367.878c-0.833-0.833-2.084-1.251-2.919-1.251h-7.504h-24.181h-17.094c-2.501,0-4.169,1.668-4.169,4.169v58.368
+	c0,2.501,1.668,4.169,4.169,4.169h58.368c2.501,0,4.169-1.668,4.169-4.169v-48.778c0-1.251-0.417-2.084-1.251-2.919L661.799,367.878
+	z M631.364,374.966h15.843v11.256h-15.843V374.966L631.364,374.966z M664.3,424.995h-50.029v-50.029h8.755v15.426
+	c0,2.501,1.668,4.169,4.169,4.169h24.181c2.501,0,4.169-1.668,4.169-4.169v-15.426h1.251l7.504,7.087V424.995z"/>
+<path d="M651.376,405.4h-24.181c-2.501,0-4.169,1.668-4.169,4.169s1.668,4.169,4.169,4.169h24.181c2.501,0,4.169-1.668,4.169-4.169
+	S653.877,405.4,651.376,405.4z"/>
+</svg>
+
+  </div>
+              </div>
+              
+              <!-- Page content -->
+              <div class="content">
+                    <div id="map"></div>
+                
+                    <script>
+                      var styles = [
+  {
+    "stylers": [
+      {
+        "color": "#e0ff4b"
+      },
+      {
+        "visibility": "simplified"
+      },
+      {
+        "weight": 1.5
+      }
+    ]
+  },
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e6e4cb"
+      },
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#ffa3a1"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#c9b2a6"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#d8ef22"
+      },
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#ffb598"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#d7d1a2"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#93817c"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.attraction",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#e69993"
+      },
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "color": "#ff6d36"
+      },
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#c5e88a"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#447530"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f1e6"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#cffc0f"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f8c967"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#e29f9b"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e98d58"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#f3a680"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#806b63"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#8f7d77"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station.rail",
+    "stylers": [
+      {
+        "color": "#f3ada2"
+      },
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#a3afc1"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#92998d"
+      }
+    ]
+  }
+                      ];
+                      // map
+                      var map;
+                      function initMap() {
+                        map = new google.maps.Map(document.getElementById('map'), {
+                          center: {lat: 35.67677383107391, lng: 139.74406289345697},
+                          zoom: 14,
+                          styles:styles
+                        });
+                        map.data.loadGeoJson('geojson.json');
+                        // Create a <script> tag and set the USGS URL as the source.
+        var script = document.createElement('script');
+        // This example uses a local copy of the GeoJSON stored at
+        // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+        script.src = 'geojson.json';
+        document.getElementsByTagName('head')[0].appendChild(script);
+      }
+
+      // Loop through the results array and place a marker for each
+      // set of coordinates.
+      window.eqfeed_callback = function(results) {
+        for (var i = 0; i < results.features.length; i++) {
+          var coords = results.features[i].geometry.coordinates;
+          var mapJsonData = geojson.json;
+          var latLng = new google.maps.LatLng(coords[1],coords[0]);
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+          });
+        }
+      }
+
+                      
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ4k-oKknUylJx-GrFjsUJ6_RX9XClHC4&callback=initMap"
+                    async defer></script>
+                    <iframe src="https://player.vimeo.com/video/334482774?autoplay=1&title=0&byline=0&portrait=0" width="640" height="455" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+              </div>
+
+<script type="module">
+  import { kml } from "https://unpkg.com/@tmcw/togeojson?module";
+
+  fetch("geojson.json")
+    .then(function(response) {
+      return response.xml();
+    })
+    .then(function(xml) {
+      console.log(kml(xml));
+    });
+    
+</script>
+
+              <script src="jquery.js"></script>
+              <script src="script.js"></script>
+
+              
+              
+            
+</body>
+  
+</html>
+  
